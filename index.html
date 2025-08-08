@@ -1,10 +1,15 @@
 <asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
   <style>
+    /* Reset margin/padding globally and prevent overflow */
     html, body {
-      margin: 0;
-      padding: 0;
-      height: auto;
-      overflow: hidden;
+      margin: 0 !important;
+      padding: 0 !important;
+      height: 100% !important;
+      overflow: hidden !important;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     .container {
@@ -17,6 +22,7 @@
       border-radius: 6px;
       max-width: 100%;
       justify-content: center;
+
       margin-bottom: 0 !important;
       padding-bottom: 0 !important;
     }
@@ -52,12 +58,15 @@
       font-size: 13px;
     }
 
+    /* Specific fix for bottom spacing on last card */
     .office-card:last-child {
       margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
     }
   </style>
 
   <div class="container">
+
     <!-- Watson Insurance Agency -->
     <div class="office-card">
       <strong>Watson Insurance Agency</strong>
@@ -104,5 +113,6 @@
       <p>Office: <a href="tel:+18038312058">(803) 831-2058</a></p>
       <p>Fax: <a href="tel:+18038312952">(803) 831-2952</a></p>
     </div>
+
   </div>
 </asp:Content>
