@@ -3,13 +3,13 @@
     .container {
       display: flex;
       flex-wrap: wrap;
-      gap: 30px;
+      gap: 20px;
       font-family: Arial, sans-serif;
       background-color: #f9f9f9;
       padding: 20px;
       border-radius: 8px;
-      max-width: 1000px;
-      margin: auto;
+      width: 100%; /* Let it fill the SharePoint embed box */
+      box-sizing: border-box;
     }
 
     .office-card {
@@ -17,8 +17,23 @@
       border: 1px solid #ddd;
       border-radius: 6px;
       padding: 16px;
-      width: 300px;
+      flex: 1 1 calc(33.333% - 20px); /* 3 per row, adjusts as needed */
+      min-width: 200px; /* Prevent text from getting too squished */
       box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
+      box-sizing: border-box;
+    }
+
+    /* Make them stack nicely on smaller widths */
+    @media (max-width: 800px) {
+      .office-card {
+        flex: 1 1 calc(50% - 20px); /* 2 per row */
+      }
+    }
+
+    @media (max-width: 500px) {
+      .office-card {
+        flex: 1 1 100%; /* Full width on very small screens */
+      }
     }
 
     .office-card strong {
@@ -48,50 +63,4 @@
     <!-- Watson Insurance Agency -->
     <div class="office-card">
       <strong>Watson Insurance Agency</strong>
-      <p>Office Hours: <strong>8:45 AM – 5:00 PM</strong></p>
-      <p>Main Office: <a href="tel:+17048658584">(704) 865-8584</a></p>
-      <p>Toll-Free: <a href="tel:+18008499287">(800) 849-9287</a></p>
-    </div>
-
-    <!-- Mailing Address -->
-    <div class="office-card">
-      <strong>Mailing Address – All Offices</strong>
-      <p>P.O. Box 879<br>Gastonia, NC 28053</p>
-      <p>Fax: <a href="tel:+17048669866">(704) 866-9866</a></p>
-    </div>
-
-    <!-- Gastonia NC Office -->
-    <div class="office-card">
-      <strong>Gastonia NC Office</strong>
-      <p>245 East 2<sup>nd</sup> Avenue<br>Gastonia, NC 28052</p>
-      <p>Office: <a href="tel:+17048658584">(704) 865-8584</a></p>
-      <p>Fax: <a href="tel:+17048669866">(704) 866-9866</a></p>
-    </div>
-
-    <!-- Belmont NC Office -->
-    <div class="office-card">
-      <strong>Belmont NC Office</strong>
-      <p>302 East Catawba Street<br>Belmont, NC 28012</p>
-      <p>Office: <a href="tel:+17048259641">(704) 825-9641</a></p>
-      <p>Fax: <a href="tel:+17028256999">(704) 825-6999</a></p>
-    </div>
-
-    <!-- Lincolnton NC Office -->
-    <div class="office-card">
-      <strong>Lincolnton NC Office</strong>
-      <p>301 East Main Street<br>Lincolnton, NC 28092</p>
-      <p>Office: <a href="tel:+17047353006">(704) 735-3006</a></p>
-      <p>Fax: <a href="tel:+17047361331">(704) 736-1331</a></p>
-    </div>
-
-    <!-- Lake Wylie SC Office -->
-    <div class="office-card">
-      <strong>Lake Wylie SC Office</strong>
-      <p>4569 Charlotte Highway<br>Lake Wylie, SC 29710</p>
-      <p>Office: <a href="tel:+18038312058">(803) 831-2058</a></p>
-      <p>Fax: <a href="tel:+18038312952">(803) 831-2952</a></p>
-    </div>
-
-  </div>
-</asp:Content>
-
+      <p>Office Hours: <strong>8:45 AM – 5:00 PM
